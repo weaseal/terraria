@@ -19,13 +19,13 @@ Assuming the docker service is running after the install (you may need to start 
 
 Starting a new world in interactive mode:
 ```
-sudo docker run -it -p 7777:7777 -v $HOME/terraria/world:/world --name="terraria" ryshe/terraria:latest
+sudo docker run -it -p 7777:7777 -v $HOME/terraria/world:/world --name="terraria" weaseal/terraria:latest
 ```
 You should have been prompted for what to name your world, and your world should have started.  The world file, configuration files, and logs will all be dropped in your ~/terraria/world folder.  At this point you can type ```exit``` to shut down your server, and change any settings.  If you're happy with the default settings press ctrl-p ctrl-q and it will leave the process running in the background.
 
 Starting your server with a preexisting world:
 ```
-sudo docker run -dit -p 7777:7777 -v $HOME/terraria/world:/world --name="terraria" ryshe/terraria:latest -world /world/<world_file_name>.wld
+sudo docker run -dit -p 7777:7777 -v $HOME/terraria/world:/world --name="terraria" weaseal/terraria:latest -world /world/<world_file_name>.wld
 ```
 Any configuration file in the directory will automatically be loaded.  The <world_file_name>.wld should be the name of your wld file in your $HOME/terraria/world directory.  This command will launch the docker in the background.  No need to press ctrl-p ctrl-q to escape the server process.
 
@@ -95,9 +95,9 @@ gives the container process the name "terraria".  Feel free to change this, and 
 
 tell docker you want to run the prebuilt container
 ```
-ryshe/terraria:latest
+weaseal/terraria:latest
 
-ryshe/terraria is the container
+weaseal/terraria is the container
 :latest is the tag
 
 there is also the :dev tag which contains a dev build.  Usually this is useful when Re-Logic updates the game and TShock has had a chance to get the new production build ready yet, but they have started work on it.  Use at your own risk, as it can be unstable.  But for those who can't get enough terraria, this might get your server running.
@@ -130,7 +130,7 @@ ENV TSHOCK_FILE_POSTFIX -pre2
 1. SSH into your linux machine. Windows users can use [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Update your machine ```sudo apt-get update```
 3. Install docker and git ```sudo apt-get install docker.io git```
-4. Pull this repository ```cd $HOME && git clone https://github.com/ryansheehan/terraria.git```
+4. Pull this repository ```cd $HOME && git clone https://github.com/weaseal/terraria.git```
 5. Change to the terraria directory ```cd terraria```
 6. Build the docker container ```sudo docker build -t your_name_here/terraria .```
 7. Confirm your docker container exists ```sudo docker images```, you should see your_name_here/terraria under the Repository column.
